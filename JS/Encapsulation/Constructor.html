@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="desert.css" rel="stylesheet" />
+    <title></title>
+</head>
+<body>
+    <div>
+        <figure>
+            <figcaption>
+                Constructor Pattern
+            </figcaption>
+            <pre class="prettyprint">
+                <code class="prettyprint">
+                    function Employee (name, profession) {
+                        ​this.name = name;
+                        ​this.profession = profession;
+                    }
+
+                    ​var richard = new Employee (“Richard”, “Developer”);
+
+                    console.log(richard.name); //richard
+                    console.log(richard.profession); // Developer
+                </code>
+            </pre>
+        </figure>
+    </div>
+
+    
+    <div>
+        <p>
+            <ul>
+                <li>"richard" is a new object we create from the "Employee()" constructor function.</li>
+            </ul>
+        </p>
+    </div>
+</body>
+</html>
+<script src="Constructor.js"></script>
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>

@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="/Encapsulation/desert.css" rel="stylesheet" />
+    <title></title>
+</head>
+<body>
+    <div>
+        <section id="instance_difference">
+            <h3>Instance for JS and strongly typed languages?</h3>
+            <p>
+                <ul>
+                    <li>In class based or strong-typed languages, instance has a special meaning and is fundamentally differnet from class.</li>
+                    <li>In JS, instance is just an informal way of denoting an object created using constructor function.</li>
+                </ul>
+            </p>
+            <p>
+                <b>References</b>
+                <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Details_of_the_Object_Model">Mozilla Developer</a>
+            </p>
+        </section>
+        <hr />
+        <section id="internal_property_prototype">
+            <h3>Internal property [[prototype]]</h3>
+            <p>
+                <ul>
+                    <li>Its value is implicitly set when a new object is created using "new" operator.</li>
+                    <li>
+                        This property allows to acccess the objects parent in the prototype chain.
+                        <pre class="prettyprint">var sourav = new Employee();</pre>
+                        For example in above code, the newly created object <pre class="prettyprint inline">sourav</pre>'s internal property is set with <pre class="prettyprint inline">Employee.prototype</pre> property.
+                    </li>
+                    <li>In modern browsers, we can access this by "__proto__" property.</li>
+                    <li>The internal [[Prototype]] property determines the prototype chain used to return property values for this new object. While looking for a property JS checks the current object and when not found keep looking up in the prototype chain until found or last parent.</li>
+                </ul>
+            </p>
+            <p>
+                <b>References</b>
+                <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Details_of_the_Object_Model">Mozilla Developer</a>
+            </p>
+        </section>
+        <hr />
+        <section id="new_operator">
+            <h3><i>new</i> operator</h3>
+            <p>
+                <ul>
+                    <li>a new object is created using "new" operator.</li>
+                    <li>
+                        In the below code, the new operator creates a new generic object and implicitly sets the value of the internal
+                        property [[Prototype]] to the value of <pre class="prettyprint inline">Manager.prototype</pre> and passes this
+                        new object as the value of the <pre class="prettyprint inline">this</pre>
+                        keyword to the <pre class="prettyprint inline">Manager()</pre> constructor function.
+                        <br/>
+
+                        <pre class="prettyprint">
+function Manager() {
+    Employee.call(this);
+    this.reports = [];
+}
+
+var mark = new Manager;
+                        </pre>
+                    </li>
+                </ul>
+            </p>
+            <p>
+                <b>References</b>
+                <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Details_of_the_Object_Model">Mozilla Developer</a>
+            </p>
+        </section>
+    </div>
+
+</body>
+</html>
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>

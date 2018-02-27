@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="desert.css" rel="stylesheet" />
+    <title></title>
+</head>
+<body>
+    <div>
+        <figure>
+            <figcaption>
+                Combination Constructor/Prototype Pattern
+            </figcaption>
+            <pre class="prettyprint">
+                <code class="prettyprint">
+                    function User (theName, theEmail) {
+                        this.name = theName;
+                        this.email = theEmail;
+                        this.quizScores = [];
+                        this.currentScore = 0;
+                        this.showNameAndScores = function ()  {
+                            var scores = this.quizScores.length > 0 ? this.quizScores.join(",") : "No Scores Yet";
+                            return this.name + " Scores: " + scores;
+                        }
+                    }
+
+                    User.prototype = {
+                        constructor: User,
+                        saveScore:function (theScoreToAdd)  {
+    
+                        },
+                        showNameAndScores2:function ()  {
+                            var scores = this.quizScores.length > 0 ? this.quizScores.join(",") : "No Scores Yet";
+                            return this.name + " Scores: " + scores;
+                        },
+                        changeEmail:function (newEmail)  {
+                            this.email = newEmail;
+                            return "New Email Saved: " + this.email;
+                        }
+                    }
+
+                    var sourav =  new User("Sourav", "souravkundu98@gmail.com");
+                    console.log("Sourav:- ", sourav);
+                </code>
+            </pre>
+        </figure>
+    </div>
+
+
+    <div>
+        <p>
+            <ul>
+                <li>
+                    <b>prototype:- </b>It is a property of the function. It is an object named "__proto__". Under this property we've construtor, and we can assign custom properties.
+                </li>
+                <li>
+                    <b>Use of "this":- </b> It specifies that these properties will be unique to every instance of the "User" object.
+                </li>
+                <li>
+                    <b>IMP - <a href="https://stackoverflow.com/a/12180914/609736">This vs. Prototype</a></b>:-  Both are almost same, excpet Prototype one is relatively faster for huge number of objects.
+                    <b><a href="https://jsperf.com/prototype-vs-this">Check speed test</a></b>
+                    <br />
+                    1.> Actual definations of the properties declared using "this" are private and can be changed only by function's object instance. This instance invoked change is limited to that instance only.
+                    <br />
+                    2.> However, actual definations of the properties declared using "prototype" can be changed with or without object instance. And that copy of the prototype is shared by all the object instances.
+
+                </li>
+            </ul>
+        </p>
+    </div>
+</body>
+</html>
+<script src="Combo.js"></script>
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>

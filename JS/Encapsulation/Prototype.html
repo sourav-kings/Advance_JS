@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="desert.css" rel="stylesheet" />
+    <title></title>
+</head>
+<body>
+    <div>
+        <figure>
+            <figcaption>
+                Prototype Pattern
+            </figcaption>
+            <pre class="prettyprint">
+                <code class="prettyprint">
+                    function Employee() { }
+
+                    Employee.prototype.firstName = "Sourav";
+                    Employee.prototype.lastName = "Kundu";
+                    Employee.prototype.fullName = function () {
+                        console.log(this.firstName + " " + this.lastName);
+                    };
+
+                    ​var abhijit = new Employee () //
+                    console.log(abhijit.fullName()); // Sourav Kundu
+                    console.log(abhijit.signedNDA); // true
+                </code>
+            </pre>
+        </figure>
+    </div>
+
+    <p id="tag1">
+
+    </p>
+</body>
+</html>
+<script src="Prototype.js"></script>
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
