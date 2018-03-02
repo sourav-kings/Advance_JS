@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="/Encapsulation/desert.css" rel="stylesheet" />
+    <title></title>
+</head>
+<body>
+    <div>
+        <section id="iApplicationBuilder">
+            <h3>iApplicationBuilder</h3>
+            <p>
+                <ul>
+                    <li>
+                        <pre class="prettyprint lang-csh">
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        BuildWebHost(args).Run();
+    }
+
+    public static IWebHost BuildWebHost(string[] args) =>
+        WebHost.CreateDefaultBuilder(args)
+            .UseStartup<Startup>()
+            .Build();
+}
+                        </pre>
+                    </li>
+                    <li>When app begins to execute, the <b>webhost</b> is configured using a <b>builder</b>.</li>
+                    <li>
+                        Using <pre class="prettyprint inline">UseStartup</pre> method we register a <b>class</b> which represents our <b>startup</b> logic.
+                                                                                                                                      <ul>
+                                                                                                                                          <li>This <b>class</b> is then instantiated and two of its methods are invoked - <pre class="prettyprint inline">ConfigureServices</pre> and <pre class="prettyprint inline">Configure</pre>.</li>
+                                                                                                                                          <li><pre class="prettyprint inline">ConfigureServices</pre> is used to register services to be injected later into components. Includes both custom and built-in services.</li>
+                                                                                                                                          <li><pre class="prettyprint inline">Configure</pre> is called only once and is used to configure middleware using <b>IApplicationBuilder. Middleware required to handle incoming HTTP requests. Middleware instance have middleware components starting with "Use.."</b> object.</li>
+                                                                                                                                          <li>
+                                                                                                                                              <pre class="prettyprint lang-csh">
+public class Startup
+{
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddSingleton<IGreeter, Greeter>();
+    }
+
+    public void Configure(
+        IApplicationBuilder app, 
+        IHostingEnvironment env,
+        IGreeter greeter)
+    {
+        if (env.IsDevelopment())
+            app.UseDeveloperExceptionPage();
+
+
+        app.Run(async (context) =>
+        {
+            await context.Response.WriteAsync("Hello World!");
+        });
+    }
+}
+                                </pre>
+                                                                                                                                          </li>
+                                                                                                                                      </ul>
+                    </li>
+                </ul>
+            </p>
+            <p>
+                <b>References</b>
+                <a href="https://app.pluralsight.com/library/courses/aspdotnet-core-fundamentals/table-of-contents">Pluralsight</a>
+            </p>
+        </section>
+        <hr />
+
+
+    </div>
+
+</body>
+</html>
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>

@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="/Encapsulation/desert.css" rel="stylesheet" />
+    <title></title>
+</head>
+<body>
+    <div>
+        <section id="ApplyBindCall">
+            <h3>Apply, Bind, Call</h3>
+            <p>
+                <ul>
+                    <li>
+                        All are nearly identical and are used for borrowing methods and for setting the <pre class="prettyprint inline">this</pre> value explicitly
+                    </li>
+                    <li> <pre class="prettyprint inline">Apply</pre> and <pre class="prettyprint inline">Call</pre> introduced in ES3. Whereas <pre class="prettyprint inline">Bind</pre> is new and introduced in ES5.</li>
+                    <li> <pre class="prettyprint inline">this</pre> does <b>NOT</b> belong to the object to the function containg, instead it belongs to the object which has invoked the function containing <pre class="prettyprint inline">this</pre>.</li>
+                    <li>
+                        Use <pre class="prettyprint inline">Bind</pre> to explicitly mention which object should the <pre class="prettyprint inline">this</pre> belong to.<br>
+                        <b>Example:- </b><pre class="prettyprint lang-js inline">$ ("button").click (user.clickHandler.bind (user));</pre>
+                    </li>
+                    <li> Another way of explicitly assign object to <pre class="prettyprint inline">this</pre> is to assign the containing function to a variable declared in an another scope. This issue can also be fixed using <pre class="prettyprint inline">Bind</pre></li>
+                    <li> <b>Borrowing of methods:- </b> <pre class="prettyprint inline">Bind</pre> can be used for that but with a risk of accidental over-write. So better to use <pre class="prettyprint inline">Apply</pre> or <pre class="prettyprint inline">Call</pre></li>
+                    <li> <b>Diff b\w <pre class="prettyprint inline">Apply</pre> and <pre class="prettyprint inline">Call</pre></b> lies in the way we pass parameters. In Call we pass parameters one by one, and in Apply we pass parameters in an array. </li>
+                </ul>
+            </p>
+            <p>
+                <b>References</b>
+                <a href="http://javascriptissexy.com/javascript-apply-call-and-bind-methods-are-essential-for-javascript-professionals/">JavaScriptIsSexy</a>
+            </p>
+        </section>
+        <hr />
+        <section>
+            <h3>Function Currying</h3>
+            <p>
+                <ul>
+                    <li>Acheived using <pre class="prettyprint inline">Bind</pre>.</li>
+                    <li>Purpose is to create a new variable for the above function call with some preset values. <pre class="prettyprint inline">Bind</pre>.</li>
+                    <li>The first parameter in the Bind is always the object which we need to <pre class="prettyprint inline">Bind</pre> the current function with.</li>
+                    <li>
+                        For ex. for this function
+                        <pre class="prettyprint">
+function greet (gender, age, name) {
+    // function defination
+}
+                        </pre>
+                        The below code creates a function <b>greetAYoungster</b> variable which would be a function call to the
+                        <b>greet</b> function but with preset values for gender and age as "" and 16 resp. The last parameter has not been set.<br />
+
+
+                        <pre class="prettyprint">
+var greetAYoungster = greet.bind (null, "", 16);
+greetAYoungster ("Alex");​
+greetAYoungster ("Emma Waterloo");
+</pre>
+                    </li>
+                </ul>
+            </p>
+        </section>
+        <hr />
+
+
+    </div>
+
+</body>
+</html>
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+<script src="ApplyCallBind.js"></script>
