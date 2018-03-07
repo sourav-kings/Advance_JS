@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets
+    xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>MyFirstCodeSnippet</Title>
+      <Author>Xavier Alexander  </Author>
+      <Description>Creates a code section with google styling class</Description>
+    </Header>
+    <Snippet>
+      <Code Language="HTML">
+        <![CDATA[
+        
+          <pre class="prettyprint">content</pre>
+        
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

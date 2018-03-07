@@ -21,7 +21,22 @@
                         <b>Example:- </b><pre class="prettyprint lang-js inline">$ ("button").click (user.clickHandler.bind (user));</pre>
                     </li>
                     <li> Another way of explicitly assign object to <pre class="prettyprint inline">this</pre> is to assign the containing function to a variable declared in an another scope. This issue can also be fixed using <pre class="prettyprint inline">Bind</pre></li>
-                    <li> <b>Borrowing of methods:- </b> <pre class="prettyprint inline">Bind</pre> can be used for that but with a risk of accidental over-write. So better to use <pre class="prettyprint inline">Apply</pre> or <pre class="prettyprint inline">Call</pre></li>
+                    <li>
+                        <b>Borrowing of methods:- </b> <pre class="prettyprint inline">Bind</pre> can be used for that but with a risk of accidental over-write. So better to use <pre class="prettyprint inline">Apply</pre> or <pre class="prettyprint inline">Call</pre>
+                        <br />Example:- In the following code, we borrowed the <i>showData ()</i> method from the user object and bind the <i>user.showData</i> method to the cars object.
+                        <pre class="prettyprint">
+var cars = {
+    data:[
+        {name:"Honda Accord", age:14},
+        {name:"Tesla Model S", age:2}
+    ]​
+}
+​
+//
+cars.showData = user.showData.bind (cars);
+cars.showData (); // Honda Accord 14​
+                        </pre>
+                    </li>
                     <li> <b>Diff b\w <pre class="prettyprint inline">Apply</pre> and <pre class="prettyprint inline">Call</pre></b> lies in the way we pass parameters. In Call we pass parameters one by one, and in Apply we pass parameters in an array. </li>
                 </ul>
             </p>
@@ -39,7 +54,7 @@
                     <li>Purpose is to create a new variable for the above function call with some preset values. <pre class="prettyprint inline">Bind</pre>.</li>
                     <li>The first parameter in the Bind is always the object which we need to <pre class="prettyprint inline">Bind</pre> the current function with.</li>
                     <li>
-                        For ex. for this function
+                        Example:-
                         <pre class="prettyprint">
 function greet (gender, age, name) {
     // function defination
