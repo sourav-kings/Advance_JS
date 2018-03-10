@@ -129,10 +129,24 @@ li.L1, li.L3, li.L5, li.L7, li.L9 {
 
 
 /**Style for <li> itemls*/
-li {
+.custom_content li {
     background: #d1edff;
     padding: 5px;
     border: 5px solid powderblue;
     font: status-bar;
     margin-bottom: 20px;
+}
+
+.card-text{
+    color:black;
+    width:40%
+}
+
+img {
+    width: 50rem;
+    height: 25rem;
+}
+
+.card {
+    margin-bottom:30px;
 }
