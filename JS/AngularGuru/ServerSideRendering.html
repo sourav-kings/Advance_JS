@@ -1,0 +1,97 @@
+﻿
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
+<div class="container">
+
+
+    <div class="row custom_content">
+
+        <section>
+            <p>
+                <h1>Server Side Rendering</h1>
+            </p>
+
+            <br />
+
+            <p>
+                <h3><span class="badge badge-info">Why do we need it?</span></h3>
+
+                <ul class="list-group">
+                    <li class="list-group-item">Performance benefit for our customers</li>
+                    <li class="list-group-item">Consistent SEO performance</li>
+                </ul>
+            </p>
+
+            <br />
+
+            <p>
+                <h3><span class="badge badge-info">Advantage over Client side rendering</span></h3>
+
+                <ol class="list-group">
+                    <li class="list-group-item">
+                        In CSR, webpage is not visible until all libraries are downloaded and until page rendering is over on browser.
+                        <br />In SSR, webpage is displayed almost immediately on browser.
+                        <br />How?
+                        <ul>
+                            <li>
+                                Browser will start rendering the HTML from your server without having to wait for all the JavaScript
+                                to be downloaded and executed.
+                            </li>
+                            <li>
+                                JS framework lib will be downloaded in both cases:-
+                                <br /> In CSR, until rendering gets over and created virtual dom has moved over to browser dom an empty web-page is displayed.
+                                <br /> However in SSR, the page starts showing up while all of that is happening.
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    <li class="list-group-item">
+                        Another Advantage - In SSR there is blank white page flickering until content is fully renderd.
+                        <br /> This issue can be avoided in CSR by using a loading image.
+                    </li>
+
+                </ol>
+            </p>
+
+            <br />
+
+            <p>
+                <h3><span class="badge badge-info">Drawbacks</span></h3>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        User interaction may fail -
+                        <br />Until page rendering is complete with all events binded.
+                    </li>
+                    <li class="list-group-item">
+                        <i>Time To First Byte</i> slower -
+                        <br /> SSR server side HTML creation is slower than CSR quick empty response
+                    </li>
+                    <li class="list-group-item">
+                        Server <span data-toggle="tooltip" title="a measure of how many units of information a system can process in a
+                                     given amount of time.">throughput</span> is very less.
+                    </li>
+                </ul>
+            </p>
+
+            <br/>
+
+            <p>
+                <h3><span class="badge badge-info">Real use case</span></h3>
+                <ol class="list-group">
+                    <li class="list-group-item">
+                        Below are production applications of walmart.com rendered with SSR vs CSR.
+                        <img src="https://cdn-images-1.medium.com/max/1500/0*-EWG5MXBIo-D_ug3."/>
+                    </li>
+
+                    <br />
+
+                </ol>
+            </p>
+        </section>
+
+
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

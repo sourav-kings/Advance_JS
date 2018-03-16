@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <input id="myButton" type="button" value="Click" />
+</body>
+</html>
+
+<script>
+    
+    //this.name = "Xavier";
+    //console.log(this);
+    //console.log("Global, this.name:-", this.name);
+
+    //function test1() {
+    //    this.name = "Jill";
+    //    console.log("inside Test1:-", this);
+    //    console.log("inside Test1, this.name:-", this.name);
+    //}
+    //test1();
+
+    //console.log("Global, this.name:-", this.name);
+    //--------------------------------------------------------------------------
+
+    //this.name = "Xavier";
+    //console.log(this);
+    //console.log("Global, this.name:-", this.name);
+
+    //var test1 = function() {
+    //    this.name = "Jill";
+    //    console.log("inside Test1:-", this);
+    //    console.log("inside Test1, this.name:-", this.name);
+    //}
+    //test1();
+
+    //console.log("Global, this.name:-", this.name);
+    //--------------------------------------------------------------------------
+
+
+
+    var myButton = document.getElementById("myButton");
+    myButton.addEventListener("click", function () {
+        console.log("inisde button addEventListner, this:- ", this);
+        //'this' refers to the button object. NOT window object.
+    });
+
+    this.name = "Xavier";
+    console.log(this.name);
+
+    (function test1() {
+        this.name = "Jill";
+    })();
+
+    console.log(this.name);//Output:- Jill
+
+
+</script>
